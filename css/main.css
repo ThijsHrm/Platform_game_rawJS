@@ -1,0 +1,22 @@
+#Game {
+  border:1px solid #000000;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -o-crisp-edges;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  width: 640px;
+  height: 480px;
+}
+
+body {
+  text-align: center;
+}
+
+#Explanation {
+  position: relative;
+  width: 640px;
+  left: 50%;
+  margin-left: -320px;
+}

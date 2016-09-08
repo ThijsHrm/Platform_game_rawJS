@@ -1,0 +1,86 @@
+[33mcommit e678c0891d37361881fb2bce52b6c2b222931386[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Tue Sep 6 15:12:39 2016 +0200
+
+    Level rendering, shooting, load order fixes
+
+[33mcommit 2b6395eeb705eddcb159de084409c16c18c11b4c[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Mon Sep 5 16:49:59 2016 +0200
+
+    Level loading, gfx and camera improvements
+
+[33mcommit 0ad1c4ee880402db04b5000c132323f1a6270e53[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Thu Sep 1 18:03:05 2016 +0200
+
+    origin
+
+[33mcommit cd2c6fcce04f03347e5064193c8e306b3b020c3a[m
+Merge: 2b4d1f9 f3a1291
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Thu Sep 1 01:53:52 2016 +0200
+
+    Animation complete
+
+[33mcommit 2b4d1f9a1d35629b7abcb509d24088f4109bf92b[m
+Merge: 111194b e110793
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Thu Sep 1 01:51:33 2016 +0200
+
+    origin
+
+[33mcommit f3a1291eab73b6b673e2cf107915a9ef67418a1b[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Thu Sep 1 01:50:39 2016 +0200
+
+    Delete README.md
+
+[33mcommit 111194bc9d9766a9bbddd658993dfbffe6244fcd[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Thu Sep 1 01:47:19 2016 +0200
+
+    Animation Complete
+
+[33mcommit e1107938e61c1593c02d28808e2c891f6cc240c3[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Wed Aug 31 22:30:40 2016 +0200
+
+    Update README.md
+
+[33mcommit 033c9c652d53b83b27b2a03b8951938bb0bd3c1f[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Wed Aug 31 22:11:02 2016 +0200
+
+    Update README.md
+
+[33mcommit 2ac0c25a928b7044e06ef4306fac019d55fb5678[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Wed Aug 31 22:00:23 2016 +0200
+
+    Update README.md
+
+[33mcommit 8cbf918f771a1c66bb1b3ec8edd25ff509509aa1[m
+Merge: 5c9238e 7d35214
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Wed Aug 31 21:40:18 2016 +0200
+
+    Merge branch 'master' of https://github.com/ThijsHrm/Platform_game_rawJS
+
+[33mcommit 5c9238ef9aaa15097ff687e1c486a32eec2e22f9[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Wed Aug 31 21:39:13 2016 +0200
+
+    first commit
+
+[33mcommit dd16c657d5169b6f119d64710774b6b75aeb41a5[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Wed Aug 31 21:36:58 2016 +0200
+
+    first commit
+
+[33mcommit 7d35214847496ba38cfae744e854c970fa795cdb[m
+Author: ThijsHrm <hermansthijs91@gmail.com>
+Date:   Wed Aug 31 21:36:02 2016 +0200
+
+    Initial commit
