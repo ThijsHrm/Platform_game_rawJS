@@ -49,6 +49,19 @@ function performAction() {
   //check for collisions
   var nothingBelow = true;
 
+  //collisions between other objects
+  bulletCollision(tileArray);
+  var destrAssets = bulletCollision(assetArray);
+  if (destrAssets > 0) console.log("destr passed");
+  for (i = 0; i < destrAssets.length; i++) {
+    if (assetArray[destrAssets[i]]._intact == true) {
+      console.log("boom");
+      assetArray[destrAssets[i]]._sprite._subX += 32;
+      assetArray[destrAssets[i]]._intact = false;
+    }
+  }
+
+  //collisions between player and tiles
   for (i in tileArray) {
     if (((player._x + player._sprite._width - 2 > tileArray[i]._x) && (player._x + player._sprite._width -2 <= tileArray[i]._x + player._xSpeed)) ||
         ((player._x + 2 >= tileArray[i]._x + tileArray[i]._width - player._xSpeed) && (player._x + 2< tileArray[i]._x + tileArray[i]._width))) {

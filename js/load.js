@@ -10,7 +10,7 @@ function loadLevel() {
       if (Level1[i][e] > 0 && Level1[i][e] < 9) {
         var block = new tile(e*32,i*32,"grass",Level1[i][e]);
         tileArray.push(block);
-      } else if (Level1[i][e] == "s") {
+      } else if (Level1[i][e] === "s") {
         var block = new destructableAsset(e*32,i*32,1);
         assetArray.push(block);
       }
