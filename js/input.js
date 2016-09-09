@@ -72,8 +72,7 @@ function checkInput() {
     if (player._shooting == false && player._shootAllowed == true) {
       player._shooting = true;
       player._shootAllowed = false;
-      player._bulletArray[player._bulletArray.length] = new bullet(player._x,player._y,player._dir)
-      console.log(player._bulletArray[player._bulletArray.length - 1]);
+      player._bulletArray[player._bulletArray.length] = new bullet(player._x,player._y,player._dir);
       setTimeout(function() {
         player._shooting = false;
       }, 150);

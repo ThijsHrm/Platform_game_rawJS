@@ -9,7 +9,9 @@ function bulletCollision(instanceArray) {
           (player._bulletArray[i]._x <= instanceArray[e]._x + instanceArray[e]._sprite._width) &&
           (player._bulletArray[i]._y + player._bulletSprite._height >= tileArray[e]._y) &&
           (player._bulletArray[i]._y <= instanceArray[e]._y + instanceArray[e]._sprite._height)) {
-            destroyInstance.push(i);
+            if (instanceArray[e]._intact == null || instanceArray[e]._intact === true) {
+              destroyInstance.push(i);
+            }
             returnOther.push(e);
           }
     }

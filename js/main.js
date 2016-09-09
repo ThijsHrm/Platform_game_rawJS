@@ -52,10 +52,8 @@ function performAction() {
   //collisions between other objects
   bulletCollision(tileArray);
   var destrAssets = bulletCollision(assetArray);
-  if (destrAssets > 0) console.log("destr passed");
   for (i = 0; i < destrAssets.length; i++) {
     if (assetArray[destrAssets[i]]._intact == true) {
-      console.log("boom");
       assetArray[destrAssets[i]]._sprite._subX += 32;
       assetArray[destrAssets[i]]._intact = false;
     }
