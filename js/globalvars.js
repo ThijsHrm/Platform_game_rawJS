@@ -13,6 +13,10 @@ window.requestAnimFrame = (function(){
           };
 })();
 
+//
+//  Check for THIS line!!!
+//
+
 //Connect to the canvas
 var canvas  = document.getElementById("Game");
 var context = canvas.getContext("2d");
