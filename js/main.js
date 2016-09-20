@@ -61,16 +61,16 @@ function performAction() {
 
   //collisions between player and tiles
   for (i in tileArray) {
-    if (((player._x + player._sprite._width - 2 > tileArray[i]._x) && (player._x + player._sprite._width -2 <= tileArray[i]._x + player._xSpeed)) ||
+    if (((player._x + player._sprite._width - 2 > tileArray[i]._x) && (player._x + player._sprite._width - 2 <= tileArray[i]._x + player._xSpeed)) ||
         ((player._x + 2 >= tileArray[i]._x + tileArray[i]._width - player._xSpeed) && (player._x + 2< tileArray[i]._x + tileArray[i]._width))) {
-          if ((player._y + player._sprite._height - 2 > tileArray[i]._y) && (player._y < tileArray[i]._y + tileArray[i]._height)) {
+          if ((player._y + player._sprite._height - 2 > tileArray[i]._y) && (player._y <= tileArray[i]._y + tileArray[i]._height + 1)) {
             player._x = 0 + player._lastX;
           }
     }
     if ((player._y + player._sprite._height - 2 >= tileArray[i]._y) &&
         (player._y + player._sprite._height - 2 <= tileArray[i]._y + player._ySpeed) &&
         (player._x + player._sprite._width - 2 > tileArray[i]._x) &&
-        (player._x +2 < tileArray[i]._x + tileArray[i]._width)) {
+        (player._x + 2 < tileArray[i]._x + tileArray[i]._width)) {
           player._y = tileArray[i]._y - player._sprite._height + 2;
           if (player._toLand == true) player._land();
           nothingBelow = false;

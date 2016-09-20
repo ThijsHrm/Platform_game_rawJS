@@ -43,9 +43,9 @@ function loadGfx() {
   //Level assets
   initGfx.imgAssets.src = imgData_Assets;
   initGfx.imgAssets.onload = function() {
+    //var spriteAssets = new sprite(initGfx.imgAssets,32,32);
     for (var i = 0; i < assetArray.length; i++) {
       assetArray[i]._sprite = new sprite(initGfx.imgAssets,32,32);
-      console.log(assetArray[i])
     }
     loaded++;
     if (loaded == toLoad) constructLevel();
@@ -58,6 +58,16 @@ function loadGfx() {
     loaded++;
     if (loaded == toLoad) constructLevel();
   }
+
+  /*
+  //turtle
+  initGfx.imgTurtle.src = imgData_Turtle;
+  initGfx.imgTurtle.onload = function() {
+    for
+    player._bulletSprite = new sprite(initGfx.imgBullet,5,3);
+    loaded++;
+    if (loaded == toLoad) constructLevel();
+  }*/
 }
 
 function constructLevel() {

@@ -13,10 +13,6 @@ window.requestAnimFrame = (function(){
           };
 })();
 
-//
-//  Check for THIS line!!!
-//
-
 //Connect to the canvas
 var canvas  = document.getElementById("Game");
 var context = canvas.getContext("2d");
@@ -32,7 +28,8 @@ var initGfx = {
   imgJazz: new Image(),
   imgLvl: new Image(),
   imgBullet: new Image(),
-  imgAssets: new Image()
+  imgAssets: new Image()//,
+  //imgTurtle: new Image()
 };
 
 //  Declare global variables
@@ -143,6 +140,19 @@ function tile(_x,_y,_type,_spec) {
   this._spec = _spec;
   this._width = 32;
   this._height = 32;
+}
+
+function enemy(_x,_y,_type) {
+  this._x = _x;
+  this._y = _y;
+  switch (_type) {
+    case "turtle":
+      this._speed = 1;
+      this._health = 1;
+      break;
+    default:
+      console.log("Undeclared enemy type!")
+  }
 }
 
 
