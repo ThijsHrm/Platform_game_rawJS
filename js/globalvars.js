@@ -28,8 +28,8 @@ var initGfx = {
   imgJazz: new Image(),
   imgLvl: new Image(),
   imgBullet: new Image(),
-  imgAssets: new Image()//,
-  //imgTurtle: new Image()
+  imgAssets: new Image(),
+  imgTurtle: new Image()
 };
 
 //  Declare global variables
@@ -43,6 +43,7 @@ var gfxTick = 0;
 //This array contains all level data, this gets imported in loadGfx.js
 var tileArray = [];
 var assetArray = [];
+var enemyArray = [];
 
 //A global sprite class/function to read each seperate frame from a spritesheet
 function sprite(image,width,height) {
@@ -145,6 +146,7 @@ function tile(_x,_y,_type,_spec) {
 function enemy(_x,_y,_type) {
   this._x = _x;
   this._y = _y;
+  this._dir = 1;
   switch (_type) {
     case "turtle":
       this._speed = 1;
@@ -153,7 +155,14 @@ function enemy(_x,_y,_type) {
     default:
       console.log("Undeclared enemy type!")
   }
+  this._type = _type;
+  this._move = function(lr) {
+    this._x += (1 - (2 * lr)) * this._speed;
+  };
 }
 
+var enemyData = {
+  turtle: {}
+}
 
 loadLevel();

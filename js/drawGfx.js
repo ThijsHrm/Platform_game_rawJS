@@ -70,6 +70,22 @@ function drawGfx() {
       tileArray[i]._sprite._height);
   }
 
+  //draw Enemies
+  for (var i = 0; i < enemyArray.length; i++) {
+    context.drawImage(
+      enemyData.turtle._sprite._img,
+      //subsprites
+      enemyData.turtle._sprite._subX,
+      enemyData.turtle._sprite._subY,
+      enemyData.turtle._sprite._width,
+      enemyData.turtle._sprite._height,
+      //location
+      enemyArray[i]._x, enemyArray[i]._y - 18,
+      //scale = 1
+      enemyData.turtle._sprite._width,
+      enemyData.turtle._sprite._height);
+  }
+
   //draw Assets
   for (var i = 0; i < assetArray.length; i++) {
     context.drawImage(

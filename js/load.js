@@ -13,6 +13,10 @@ function loadLevel() {
       } else if (Level1[i][e] === "s") {
         var block = new destructableAsset(e*32,i*32,1);
         assetArray.push(block);
+      } else if (Level1[i][e] === "t") {
+        var block = new enemy(e*32,i*32,"turtle");
+        enemyArray.push(block);
+        console.log(enemyArray[0]._type);
       }
     }
   }
@@ -59,15 +63,13 @@ function loadGfx() {
     if (loaded == toLoad) constructLevel();
   }
 
-  /*
   //turtle
   initGfx.imgTurtle.src = imgData_Turtle;
   initGfx.imgTurtle.onload = function() {
-    for
-    player._bulletSprite = new sprite(initGfx.imgBullet,5,3);
+    enemyData.turtle._sprite = new sprite(initGfx.imgTurtle,64,53);
     loaded++;
     if (loaded == toLoad) constructLevel();
-  }*/
+  }
 }
 
 function constructLevel() {

@@ -29,6 +29,8 @@ function saveLastPos() {
 //Perform all action
 function performAction() {
 
+  moveEnemies();
+
   //sliding player
   if (player._sliding == true) {
     player._x -= (1 - (2 * player._dir)) * player._xSpeed;
