@@ -14,9 +14,8 @@ function loadLevel() {
         var block = new destructableAsset(e*32,i*32,1);
         assetArray.push(block);
       } else if (Level1[i][e] === "t") {
-        var block = new enemy(e*32,i*32,"turtle");
+        var block = new enemy(e*32,(i*32) - 18,"turtle");
         enemyArray.push(block);
-        console.log(enemyArray[0]._type);
       }
     }
   }
@@ -66,12 +65,19 @@ function loadGfx() {
   //turtle
   initGfx.imgTurtle.src = imgData_Turtle;
   initGfx.imgTurtle.onload = function() {
-    enemyData.turtle._sprite = new sprite(initGfx.imgTurtle,64,53);
+    for (var i = 0; i < enemyArray.length; i++) {
+      switch (enemyArray[i]._type) {
+        case "turtle":
+          enemyArray[i]._sprite = new sprite(initGfx.imgTurtle,66,53);
+          break;
+      }
+    }
     loaded++;
     if (loaded == toLoad) constructLevel();
   }
 }
 
+//Construct all tiles
 function constructLevel() {
   for (var i = 0; i < tileArray.length; i++) {
     switch  (tileArray[i]._spec) {

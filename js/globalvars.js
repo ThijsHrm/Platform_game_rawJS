@@ -44,6 +44,8 @@ var gfxTick = 0;
 var tileArray = [];
 var assetArray = [];
 var enemyArray = [];
+//the collision array is a recyclable array, used for general purpose collision data storage
+var cols = [];
 
 //A global sprite class/function to read each seperate frame from a spritesheet
 function sprite(image,width,height) {
@@ -53,6 +55,10 @@ function sprite(image,width,height) {
   this._subX = 0;
   this._subY = 0;
 };
+
+var enemyData = {
+  col: []
+}
 
 //The player object is initialized here
 var player = {
@@ -146,7 +152,7 @@ function tile(_x,_y,_type,_spec) {
 function enemy(_x,_y,_type) {
   this._x = _x;
   this._y = _y;
-  this._dir = 1;
+  this._dir = 0;
   switch (_type) {
     case "turtle":
       this._speed = 1;
@@ -157,12 +163,8 @@ function enemy(_x,_y,_type) {
   }
   this._type = _type;
   this._move = function(lr) {
-    this._x += (1 - (2 * lr)) * this._speed;
+    this._x -= (1 - (2 * lr)) * this._speed;
   };
-}
-
-var enemyData = {
-  turtle: {}
 }
 
 loadLevel();

@@ -18,9 +18,9 @@ function drawGfx() {
       player._sprite._subX = (player._sprite._width * player._landLeft[0][0]);
       player._sprite._subY = (player._sprite._height * player._landLeft[0][1]);
     } else if (player._moving == true) {
-      var i = Math.floor((gfxTick % 8) / 2)
-      player._sprite._subX = (player._sprite._width * player._runLeft[i][0]);
-      player._sprite._subY = (player._sprite._height * player._runLeft[i][1]);
+      var sim = Math.floor((gfxTick % 8) / 2)
+      player._sprite._subX = (player._sprite._width * player._runLeft[sim][0]);
+      player._sprite._subY = (player._sprite._height * player._runLeft[sim][1]);
     } else if (player._shooting == true) {
       player._sprite._subX = (player._sprite._width * player._shootLeft[0][0]);
       player._sprite._subY = (player._sprite._height * player._shootLeft[0][1]);
@@ -42,15 +42,26 @@ function drawGfx() {
       player._sprite._subX = (player._sprite._width * player._landRight[0][0]);
       player._sprite._subY = (player._sprite._height * player._landRight[0][1]);
     } else if (player._moving == true) {
-      var i = Math.floor((gfxTick % 8) / 2)
-      player._sprite._subX = (player._sprite._width * player._runRight[i][0]);
-      player._sprite._subY = (player._sprite._height * player._runRight[i][1]);
+      var sim = Math.floor((gfxTick % 8) / 2)
+      player._sprite._subX = (player._sprite._width * player._runRight[sim][0]);
+      player._sprite._subY = (player._sprite._height * player._runRight[sim][1]);
     } else if (player._shooting == true) {
       player._sprite._subX = (player._sprite._width * player._shootRight[0][0]);
       player._sprite._subY = (player._sprite._height * player._shootRight[0][1]);
     } else {
       player._sprite._subX = (player._sprite._width * player._idleRight[0][0]);
       player._sprite._subY = (player._sprite._height * player._idleRight[0][1]);
+    }
+  }
+
+  //update enemy images
+  for (var i = 0; i < enemyArray.length; i++) {
+    if (enemyArray[i]._dir == 0) {
+      enemyArray[i]._sprite._subY = 0;
+      enemyArray[i]._sprite._subX = enemyArray[i]._sprite._width * Math.floor((gfxTick % 40) / 8);
+    } else {
+      enemyArray[i]._sprite._subY = 53;
+      enemyArray[i]._sprite._subX = enemyArray[i]._sprite._width * Math.floor((gfxTick % 40) / 8);
     }
   }
 
@@ -73,17 +84,17 @@ function drawGfx() {
   //draw Enemies
   for (var i = 0; i < enemyArray.length; i++) {
     context.drawImage(
-      enemyData.turtle._sprite._img,
+      enemyArray[i]._sprite._img,
       //subsprites
-      enemyData.turtle._sprite._subX,
-      enemyData.turtle._sprite._subY,
-      enemyData.turtle._sprite._width,
-      enemyData.turtle._sprite._height,
+      enemyArray[i]._sprite._subX,
+      enemyArray[i]._sprite._subY,
+      enemyArray[i]._sprite._width,
+      enemyArray[i]._sprite._height,
       //location
-      enemyArray[i]._x, enemyArray[i]._y - 18,
+      enemyArray[i]._x, enemyArray[i]._y,
       //scale = 1
-      enemyData.turtle._sprite._width,
-      enemyData.turtle._sprite._height);
+      enemyArray[i]._sprite._width,
+      enemyArray[i]._sprite._height);
   }
 
   //draw Assets
