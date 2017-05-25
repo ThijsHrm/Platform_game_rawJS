@@ -72,7 +72,9 @@ function checkInput() {
     if (player._shooting == false && player._shootAllowed == true) {
       player._shooting = true;
       player._shootAllowed = false;
-      player._bulletArray[player._bulletArray.length] = new bullet(player._x,player._y,player._dir);
+      var location_of_new_bullet = player._bulletArray.length
+      player._bulletArray[location_of_new_bullet] = new bullet(player._x,player._y,player._dir);
+      player._bulletArray[location_of_new_bullet]._sprite = player._bulletSprite;
       setTimeout(function() {
         player._shooting = false;
       }, 150);

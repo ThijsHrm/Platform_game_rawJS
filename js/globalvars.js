@@ -3,7 +3,10 @@
 This script initializes all graphics, declare global variables, objects etc...
 ################################################################################
 */
-// shim layer with setTimeout fallback -> Credits to Paul Irish
+
+//==================================================
+//    Set up the animation frame
+//==================================================
 window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
           window.webkitRequestAnimationFrame ||
@@ -13,7 +16,9 @@ window.requestAnimFrame = (function(){
           };
 })();
 
-//Connect to the canvas
+//==================================================
+//    Connect to the canvas
+//==================================================
 var canvas  = document.getElementById("Game");
 var context = canvas.getContext("2d");
 //render scaled screen without interpolation [see also: main.css]
@@ -22,9 +27,10 @@ context.mozImageSmoothingEnabled = false;
 context.imageSmoothingEnabled = false;
 context.translate(-16,-34);
 
-//initialize Graphics to be loaded
+//==================================================
+//    Initialize Graphics to be loaded
+//==================================================
 var initGfx = {
-  //main char
   imgJazz: new Image(),
   imgLvl: new Image(),
   imgBullet: new Image(),
@@ -36,6 +42,7 @@ var initGfx = {
 //Load files
 var toLoad = Object.keys(initGfx).length;
 var loaded = 0;
+var obj_ids = 0;
 //Input variable
 var keys = [];
 //gfxTick increases every frame, used as a multiplier for sliding through spritesheets
@@ -46,6 +53,11 @@ var assetArray = [];
 var enemyArray = [];
 //the collision array is a recyclable array, used for general purpose collision data storage
 var cols = [];
+// Whenever something has to be destroyed it gets mapped in a copy of this object
+function destroy_these_object() {
+  this.bullets_indexes = [];
+  this.assets_Ids = [];
+}
 
 //A global sprite class/function to read each seperate frame from a spritesheet
 function sprite(image,width,height) {
@@ -104,6 +116,7 @@ var player = {
   _shootAllowed: true,
   _bulletArray: [],
   _curJump: 0,
+  _nothingBelow: false,
   _land: function() {
       player._toLand = false;
       player._jumpAllowed = true;
@@ -123,6 +136,8 @@ var player = {
 
 //bullet class/function
 function bullet(_x,_y,_dir) {
+  this._id = (obj_ids + 1);
+  obj_ids++;
   this._x = _x;
   this._y = _y;
   this._dir = _dir;
@@ -130,7 +145,9 @@ function bullet(_x,_y,_dir) {
   this._y += 23;
 }
 
-function destructableAsset(_x,_y,_spec) {
+function destructibleAsset(_x,_y,_spec) {
+  this._id = (obj_ids + 1);
+  obj_ids++;
   this._x = _x;
   this._y = _y;
   this._spec = _spec;
@@ -141,6 +158,8 @@ function destructableAsset(_x,_y,_spec) {
 
 //The tile function/class can be found here
 function tile(_x,_y,_type,_spec) {
+  this._id = (obj_ids + 1);
+  obj_ids++;
   this._x = _x;
   this._y = _y;
   this._type = _type;
@@ -150,18 +169,21 @@ function tile(_x,_y,_type,_spec) {
 }
 
 function enemy(_x,_y,_type) {
+  this._id = (obj_ids + 1);
+  obj_ids++;
   this._x = _x;
   this._y = _y;
   this._dir = 0;
-  switch (_type) {
+  this._type = _type;
+  switch (this._type) {
     case "turtle":
       this._speed = 1;
       this._health = 1;
       break;
     default:
+    // Raise an explicit error here
       console.log("Undeclared enemy type!")
   }
-  this._type = _type;
   this._move = function(lr) {
     this._x -= (1 - (2 * lr)) * this._speed;
   };
